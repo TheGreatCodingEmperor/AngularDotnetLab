@@ -34,6 +34,7 @@ import { AccessComponent } from './components/access/access.component';
             {
                 path: '', component: AppMainComponent,
                 children: [
+                    {path:'example',loadChildren:()=> import('./modules/example/example.module').then(m => m.ExampleModule)},
                     {path: '', component: DashboardComponent},
                     {path: 'uikit/formlayout', component: FormLayoutComponent},
                     {path: 'uikit/input', component: InputComponent},

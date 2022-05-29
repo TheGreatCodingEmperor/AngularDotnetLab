@@ -9,3 +9,9 @@
 @import "assets/sass/layout/_variables";
 @import "assets/sass/layout/_layout";
 @import "assets/sass/overrides/_overrides";
+
+.p-inputgroup p-dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
