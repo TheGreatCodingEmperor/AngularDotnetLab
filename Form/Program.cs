@@ -1,6 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using DAL;
+
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddSwaggerGen();
+
 // Add services to the container.
+builder.Services.AddDbContext<ApplicationDBContext>(p=>{
+    p.UseInMemoryDatabase("app");
+});
 
 builder.Services.AddControllersWithViews();
 
@@ -13,10 +21,16 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
-
 
 app.MapControllerRoute(
     name: "default",
